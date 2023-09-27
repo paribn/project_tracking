@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="row">
+        <form action="">
+            <div class="input-row">
+                <label >Task name</label>
+                <input type="text" name="task-name"/>
+            </div>
+            <div class="input-row">
+                <label >Story point</label>
+                <input type="number" name="story-point"/>
+            </div>
+            <div class="input-row">
+                <label >Assinger</label>
+                <select name="assinger">
+                    <option value="Peri">Peri</option>
+                    <option value="Beyim">Beyim</option>
+                    <option value="Janna">Janna</option>
+                    <option value="Alish">ALish</option>
+                </select>
+            </div>
+            <button type="submit">Add task</button>
+
+        </form>
+
+
+    <div class="tasks">
+        <div class="task-sections">
+            <div class="todo">
+                <h2>Todo</h2>
+                <div class="todo-container element-container">
+                </div>
+    
+            </div>
+            <div class="inprogress">
+                <h2>In progress</h2>
+                <div class="inprogress-container element-container">
+                </div>
+            </div>
+            <div class="review">
+                <h2>Review</h2>
+                <div class="review-container element-container">
+                </div>
+            </div>
+            <div class="done">
+                <h2>Done</h2>
+                <div class="done-container element-container">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
