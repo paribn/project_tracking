@@ -18,6 +18,7 @@
                 <label >Story point</label>
                 <input type="number" name="story-point"/>
             </div>
+            
             <div class="input-row">
                 <label >Assinger</label>
                 <select name="assinger">
@@ -27,32 +28,49 @@
                     <option value="Alish">ALish</option>
                 </select>
             </div>
-            <button type="submit">Add task</button>
+
+            <div class="input- stage-row hide">
+                <label >Stage</label>
+                <select name="stage">
+                    <option value="TODO">Todo</option>
+                    <option value="IN_PROGRESS">Inprogress</option>
+                    <option value="REVIEW">Review</option>
+                    <option value="DONE">Done</option>
+                </select>
+            </div>
+
+            <div class="btn_">
+                <button type="submit">Add task</button>
+                <button  type="button" class="update hide">Update</button>
+            </div>
 
         </form>
-
-
     <div class="tasks">
+        <button>All</button>
+        <button>Peri</button>
+        <button>Beyim</button>
+        <button>Janna</button>
+        <button>Alish</button>
         <div class="task-sections">
             <div class="todo">
                 <h2>Todo</h2>
-                <div class="todo-container element-container">
+                <div class="todo-container element-container" data-name="TODO">
                 </div>
     
             </div>
             <div class="inprogress">
                 <h2>In progress</h2>
-                <div class="inprogress-container element-container">
+                <div class="inprogress-container element-container" data-name="IN_PROGRESS">
                 </div>
             </div>
             <div class="review">
                 <h2>Review</h2>
-                <div class="review-container element-container">
+                <div class="review-container element-container" data-name="REVIEW">
                 </div>
             </div>
             <div class="done">
                 <h2>Done</h2>
-                <div class="done-container element-container">
+                <div class="done-container element-container" data-name="DONE">
                 </div>
             </div>
         </div>
