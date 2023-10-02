@@ -15,7 +15,7 @@ let storyPoint = inputs['story-point'];
 let assigner = inputs['assinger'];
 let stage = inputs['stage'];
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('project')) || [];
 
 
 form.addEventListener('submit', AddTask);
@@ -35,6 +35,7 @@ function AddTask(e) {
     }
     
     tasks.push(task)
+    localStorage.setItem('project',JSON.stringify(tasks))
     ClearInput();
 
     stageRow.classList.add('hide');
@@ -52,7 +53,7 @@ function ClearInput() {
 }
 
 function List() {
-
+  
     todoContainer.innerHTML = '';
     inprogressContainer.innerHTML = "";
     reviewContainer.innerHTML = "";
@@ -63,7 +64,7 @@ function List() {
 
     sortedTask.forEach((task, index) => {
         let taskElement = `<div  class="element" data-id="${index}" draggable="true">${task.name} <span>${task.point}</span></div>`
-
+ 
         switch (task.stage) {
             case "TODO":
                 todoContainer.innerHTML += taskElement;
@@ -78,6 +79,7 @@ function List() {
                 doneContainer.innerHTML += taskElement;
                 break;
         }
+
     });
 
     Draggable();
@@ -88,7 +90,7 @@ function Draggable() {
 
         element.addEventListener('dragstart', function (e) {
             let element = e.target;
-
+ 
             inprogressContainer.addEventListener('dragover', function (e) {
                 e.preventDefault();
             });
@@ -141,6 +143,7 @@ function Update(e) {
     inputs['assinger'].value = task.assigner;
     inputs['stage'].value = task.stage;
 
+
     update.classList.remove('hide');
     stageRow.classList.remove('hide');
 }
@@ -167,3 +170,11 @@ function UpdateTask() {
 
 
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    let project=localStorage.getItem('project');
+    if(project){
+        userArr = JSON.parse(project);
+        List();
+    }
+})
